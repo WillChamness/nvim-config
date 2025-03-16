@@ -18,7 +18,7 @@ return {
       -- create terminal in horizontal layout
       local function toggle_horizontal()
          local terminal = Terminal:new({
-            size = 10,
+            size = 9,
             hide_numbers = true,
             direction = "horizontal",
             close_on_exit = true,

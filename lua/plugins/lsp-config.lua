@@ -34,8 +34,8 @@ return {
 			-- typescript
 			lspconfig.tsserver.setup({ capabilities = capabilities })
 			-- python
-			lspconfig.pyright.setup({ capabilities = capabilities, filetypes = { "python" } })
-			-- lspconfig.jedi_language_server.setup({ capabilities = capabilities, filetypes = { "python" } })
+			-- lspconfig.pyright.setup({ capabilities = capabilities, filetypes = { "python" } })
+			lspconfig.jedi_language_server.setup({ capabilities = capabilities, filetypes = { "python" } })
 			-- lspconfig.pylsp.setup({capabilities = capabilities})
 
 			-- global kepmaps

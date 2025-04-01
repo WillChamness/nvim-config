@@ -15,7 +15,7 @@ return {
 				-- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
 				ensure_installed = {
 					"lua_ls",
-					"tsserver",
+					"ts_ls",
 					"pylsp",
 					"pyright",
 					"jedi_language_server",
@@ -29,14 +29,14 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
          -- allow LSPs to refresh when a new file or directory is created
-         capabilities.workspace = {
-            didChangeWatchedFiles = { dynamicRegistration = true, }
-         }
+--         capabilities.workspace = {
+--            didChangeWatchedFiles = { dynamicRegistration = true, }
+--         }
 			-- setup LSPs here
 			-- lua
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			-- typescript
-			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({ capabilities = capabilities }) -- deprecated
 			-- python
 			lspconfig.pyright.setup({ capabilities = capabilities, filetypes = { "python" } })
 			-- lspconfig.jedi_language_server.setup({ capabilities = capabilities, filetypes = { "python" } })

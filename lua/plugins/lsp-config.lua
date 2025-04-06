@@ -29,9 +29,9 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
          -- allow LSPs to refresh when a new file or directory is created
---         capabilities.workspace = {
---            didChangeWatchedFiles = { dynamicRegistration = true, }
---         }
+         capabilities.workspace = {
+            didChangeWatchedFiles = { dynamicRegistration = true, }
+         }
 			-- setup LSPs here
 			-- lua
 			lspconfig.lua_ls.setup({ capabilities = capabilities })

@@ -18,6 +18,6 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>e", ":Neotree toggle filesystem reveal left<CR>")
+		vim.keymap.set("n", "<leader>e", ":Neotree toggle filesystem reveal float<CR>")
 	end,
 }

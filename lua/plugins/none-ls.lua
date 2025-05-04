@@ -15,6 +15,9 @@ return {
 				}),
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
+            -- typescript/javascript
+            null_ls.builtins.formatting.biome,
+            -- null_ls.builtins.formatting.prettier,
 			},
 		})
 

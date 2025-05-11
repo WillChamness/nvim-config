@@ -50,6 +50,11 @@ return {
          python:toggle()
       end
 
+      local function toggle_haskell_interpreter()
+         local ghci = Terminal:new({cmd = "ghci", hidden = true, direction = "float"})
+         ghci:toggle()
+      end
+
       local function toggle_node()
          local node = Terminal:new({ cmd = "node", hidden = true, direction = "float" })
          node:toggle()
@@ -70,6 +75,7 @@ return {
       vim.keymap.set("n", "<leader>tv", toggle_vertical)
       vim.keymap.set("n", "<leader>tg", toggle_lazygit)
       vim.keymap.set("n", "<leader>tp", toggle_python)
+      vim.keymap.set("n", "<leader>tG", toggle_haskell_interpreter)
       vim.keymap.set("n", "<leader>tn", toggle_node)
       vim.keymap.set("n", "<leader>tf", toggle_frogmouth)
       vim.keymap.set("n", "<leader>tH", toggle_htop)

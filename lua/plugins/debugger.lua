@@ -15,6 +15,13 @@ return {
 
          -- put DAPs for each language here
          require("dap-python").setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+
+         dap.adapters.haskell = { -- must run 'stack install haskell-dap ghci-dap haskell-debug-adapter'
+            type = "executable",
+            command = "haskell-debug-adapter",
+            args = {"--hackage-version=0.0.33.0"}
+         }
+
          dap.adapters["pwa-node"] = {
             type = "server",
             host = "localhost",
@@ -36,6 +43,22 @@ return {
             args = { os.getenv("HOME") .. "/.local/bin/vscode-firefox-debug/dist/adapter.bundle.js" }
          }
 --]]
+
+         dap.configurations.haskell = {
+            type = "haskell",
+            requiest = "launch",
+            name = "Debug",
+            workspace = "${workspaceFodler}",
+            startup = "${file}",
+            stopOnEntry = true,
+            logFile = vim.fn.stdpath("data") .. "/haskell-dap.log",
+            logLevel = "ERROR",
+            ghciEnv = vim.empty_dict(),
+            ghciPrompt = "λ: ",
+            ghciInitialPrompt = "λ: ",
+            ghciCmd= "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show",
+         }
+
          for _, language in ipairs({ "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" }) do
             dap.configurations[language] = {
                {

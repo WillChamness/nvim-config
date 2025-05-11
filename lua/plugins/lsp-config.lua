@@ -19,6 +19,7 @@ return {
 					"pylsp",
 					"pyright",
 					"jedi_language_server",
+               "hls",
 				},
 			})
 		end,
@@ -33,14 +34,19 @@ return {
             didChangeWatchedFiles = { dynamicRegistration = true, }
          }
 			-- setup LSPs here
+         --
 			-- lua
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			-- typescript
 			lspconfig.ts_ls.setup({ capabilities = capabilities }) -- deprecated
+
 			-- python
 			lspconfig.pyright.setup({ capabilities = capabilities, filetypes = { "python" } })
 			-- lspconfig.jedi_language_server.setup({ capabilities = capabilities, filetypes = { "python" } })
 			-- lspconfig.pylsp.setup({capabilities = capabilities})
+
+         -- haskell
+         lspconfig.hls.setup({capabilities = capabilities })
 
 			-- global kepmaps
 			vim.keymap.set("n", "<leader>ldc", vim.diagnostic.open_float) -- open diagnostic window on cursor location
